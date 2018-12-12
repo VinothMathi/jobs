@@ -1,0 +1,16 @@
+<% form_for(@user_session, url: {action: :create,controller: :user_sessions}, html: {id: "myform1", :class => "myform"}) do |f| %>
+  <fieldset>
+    <h2><%= t '$t$login.title' , :default => 'Login' %></h2>
+    <p>
+      <%= f.label :email %>
+      <%= f.text_field :email, :class=>"text"%>
+    </p>
+    <p>
+      <%= f.label :password %>
+      <%= f.password_field :password , :class=>"text" %>
+    </p>
+    <p>
+      <%= f.submit t('$t$login.submit', :default => 'Login'), :class => "button" %>
+    </p>
+  </fieldset>
+<% end %>

@@ -1,0 +1,27 @@
+<% if @events.present? %>
+  <h3>List of events</h3>
+  <table class='event table table-bordered'>
+    <thead>
+      <tr class='row'>
+        <td>ID</td>
+        <td>Code</td>
+        <td>Name</td>
+        <td>Status</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+        <tr class='row'>
+          <td><%= event.id %></td>
+          <td><%= event.code %></td>
+          <td><%= event.name %></td>
+          <td><%= event.status %></td>
+          <td><%= link_to 'Show', event_path(event) %></td>
+          <td><%= link_to (event.active? ? 'Deactivate' : 'Activate'), toggle_status_event_path(event) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

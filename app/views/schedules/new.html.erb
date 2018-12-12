@@ -1,0 +1,12 @@
+<h3>Schedule form</h3>
+<%= form_for(@schedule) do |f| %>
+  <%= f.label 'Cron Schedule' %>
+  <%= f.text_field :cron_schedule, required: true %>
+  <%= f.label 'Queue' %>
+  <%= f.text_field :queue, required: true %>
+  <%= f.label 'Priority' %>
+  <%= f.text_field :priority, required: true %>
+  <%= f.label 'Status' %>
+  <%= f.select :status, ['active','inactive'], required: true %>
+  <%= f.submit('Submit') %>
+<% end %>

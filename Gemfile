@@ -37,6 +37,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'mysql2'
 gem 'hirb'
+gem 'delayed_job_active_record'
+gem 'daemons'
+gem 'whenever'
+gem 'crontab-parser'
+gem 'oj'
+gem 'authlogic'
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

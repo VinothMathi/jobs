@@ -1,0 +1,25 @@
+<div>
+  <h3>Schedule: <%= @schedule.id %></h3>
+  <div>
+    <%= link_to 'Create schedule', new_schedule_path %>
+  </div>
+  <div>
+    <%= link_to 'Edit schedule', edit_schedule_path(@schedule) %>
+  </div>
+  <br/>
+  <div>
+    CronSchedule: <%= @schedule.cron_schedule %>
+    <br/>
+    Job: <%= @schedule.job %>
+    <br/>
+    Queue: <%= @schedule.queue %>
+    <br/>
+    Priority: <%= @schedule.priority %>
+    <br/>
+    Status: <%= @schedule.status %>
+    <br/>
+    Created By: <%= @schedule.user.name %>
+    <br/>
+    Last Updated By: <%= @schedule.last_updated_by.name %>
+  </div>
+</div>
