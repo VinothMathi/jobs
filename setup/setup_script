@@ -1,0 +1,8 @@
+bundle install
+rake prepare_db
+./bin/delayed_job --queue='default' run
+./bin/delayed_jon --queue='event' run
+./lib/scheduler.rb run
+rails s -p 3000
+
+Site link - http://localhost:3000
