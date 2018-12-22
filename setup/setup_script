@@ -1,5 +1,7 @@
+rvm install ruby 2.5.3p105
 bundle install
 rake prepare_db
+rake asset:precompile
 ./bin/delayed_job --queue='default' run
 ./bin/delayed_jon --queue='event' run
 ./lib/scheduler.rb run
