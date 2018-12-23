@@ -1,0 +1,39 @@
+<div class='filter'>
+  <%= form_tag(action: :collection) do %>
+    <%= label_tag 'Filter by queue' %>
+    <%= select_tag :queue, options_for_select(@queues+['all'], params[:queue] || 'all') %>
+    <%= submit_tag 'Submit' %>
+  <% end %>
+</div>
+<h3>List of Jobs</h3>
+<% if @jobs.present? %>
+  <table class='table table-bordered'>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Job</td>
+        <td>Failed Attempts</td>
+        <td>Queue</td>
+        <td>Run at</td>
+        <td>Status</td>
+        <td>Failed at</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @jobs.each do |job| %>
+        <tr>
+          <td><%= job.id %></td>
+          <td><%= job.schedule.job %></td>
+          <td><%= job.attempts %></td>
+          <td><%= job.queue %></td>
+          <td><%= job.run_at %></td>
+          <td><%= job.status %></td>
+          <td><%= job.failed_at %></td>
+          <td><%= link_to 'Show', job_path(job) %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+<%= will_paginate @jobs %>

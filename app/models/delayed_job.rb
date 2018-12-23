@@ -1,5 +1,6 @@
 class DelayedJob < ApplicationRecord
   belongs_to :schedule
+  belongs_to :event, optional: true
 
   def self.invoke_jobs
     jobs = Job.where("run_at < now()").sort_by(&:priority).select do |job|

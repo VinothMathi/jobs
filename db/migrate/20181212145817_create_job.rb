@@ -2,6 +2,7 @@ class CreateJob < ActiveRecord::Migration[5.2]
   def change
     create_table :delayed_jobs do |t|
       t.integer  :schedule_id
+      t.integer  :event_id
       t.text     :handler
       t.integer  :priority
       t.integer  :attempts, default: 0
@@ -17,6 +18,7 @@ class CreateJob < ActiveRecord::Migration[5.2]
     add_index :delayed_jobs, :schedule_id
     create_table :jobs_logs do |t|
       t.integer  :schedule_id
+      t.integer  :event_id
       t.text     :handler
       t.integer  :priority
       t.integer  :attempts

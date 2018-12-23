@@ -52,6 +52,10 @@ class SchedulesController < ApplicationController
   private
   def load_schedule
     @schedule = Schedule.find(params[:id].to_i)
+    if !@schedule
+      flash[:error] = 'Schedule not found'
+      redirect_back(fallback_location: schedules_path)
+    end
   end
 
   def schedule_params

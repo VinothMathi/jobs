@@ -8,9 +8,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :events do
+  resources :events, except: [:new] do
     member do
       get :toggle_status
+    end
+  end
+
+  resources :jobs, only: [:index, :show] do
+    collection do
+      get :collection
+      post :collection
     end
   end
 

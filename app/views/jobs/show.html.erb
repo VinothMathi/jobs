@@ -1,0 +1,53 @@
+<% link_to 'Show all jobs', jobs_path %>
+<div>
+  <h3>Job - <%= @job.id %></h3>
+  <div class='job-details'>
+    <b>Priority</b>: <%= @job.priority %>
+    <br/>
+    <b>Queue</b>: <%= @job.queue %>
+    <br/>
+    <b>Status</b>: <%= @job.status %>
+    <br/>
+    <b>Run at</b>: <%= @job.run_at %>
+    <br/>
+    <b>Locked by</b>: <%= @job.locked_by %>
+    <br/>
+    <b>Locked at</b>: <%= @job.locked_at %>
+    <br/>
+    <b>Failed at</b>: <%= @job.failed_at %>
+    <br/>
+    <b>Error</b>: <%= @job.error %>
+  </div>
+  <% schedule = @job.schedule %>
+  <div class='schedule-details'>
+    <h3>Schedule: <%= schedule.id %></h3>
+    <div>
+      <b>CronSchedule</b>: <%= schedule.cron_schedule %>
+      <br/>
+      <b>Job</b>: <%= schedule.job %>
+      <br/>
+      <b>Queue</b>: <%= schedule.queue %>
+      <br/>
+      <b>Priority</b>: <%= schedule.priority %>
+      <br/>
+      <b>Status</b>: <%= schedule.status %>
+      <br/>
+      <b>Created By</b>: <%= schedule.user.name %>
+      <br/>
+      <b>Last Updated By</b>: <%= schedule.last_updated_by.name %>
+    </div>
+  </div>
+  <% event = @job.event %>
+  <% if event %>
+    <div class='event-details'>
+      <h3>Event: <%= event.id %></h3>
+      <div>
+        <b>Code</b>: <%= event.code %>
+        <br/>
+        <b>Name</b>: <%= event.name %>
+        <br/>
+        <b>Status</b>: <%= event.status %>
+      </div>
+    </div>
+  <% end %>
+</div>

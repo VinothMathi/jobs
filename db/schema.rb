@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2018_12_14_160636) do
 
   create_table "delayed_jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "schedule_id"
+    t.integer "event_id"
     t.text "handler"
     t.integer "priority"
     t.integer "attempts", default: 0
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 2018_12_14_160636) do
 
   create_table "jobs_logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "schedule_id"
+    t.integer "event_id"
     t.text "handler"
     t.integer "priority"
     t.integer "attempts"

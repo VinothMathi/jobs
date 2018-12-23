@@ -3,7 +3,9 @@ require "delayed/backend/active_record"
 class Delayed::Backend::ActiveRecord::Job
   before_destroy do |job|
     begin
-      JobsLog.create(job.attributes)
+      jl = JobsLog.create(job.attributes)
+      Rails.logger.info jl.inspect
+      Rails.logger.info jl.errors.to_a.inspect
     rescue => e
       Rails.logger.info e.message.inspect
       Rails.logger.info e.backtrace.join('\n')

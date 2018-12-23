@@ -8,7 +8,7 @@ module Public
           invalid_events = event_codes.map(&:to_s) - events.map(&:code)
           events.each do |event|
             event.schedules.each do |schedule|
-              schedule.insert_into_dj(queue: 'event', run_at: Time.now, priority: 1)
+              schedule.insert_into_dj(queue: 'event', run_at: Time.now, priority: 1, event_id: event.id)
             end
           end
           if invalid_events.any?

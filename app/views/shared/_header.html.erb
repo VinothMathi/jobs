@@ -1,22 +1,25 @@
 <% current_user = Current.user %>
 <div class='headers'>
-	<% if current_user.present? %>
-			<span class='user-name'>
-				<%= current_user.name %>
-			</span>
-			<span class='log-out'>
-				<%= link_to 'Logout', logout_user_sessions_path %>
-			</span>
-			<span class='schedules'>
-				<%= link_to 'Schedules', schedules_path %>
-			</span>
-			<span clss='events'>
-				<%= link_to 'Events', events_path %>
-			</span>
-		</div>
-	<% elsif !(controller_name == :user_sessions && action_name == :new)  %>
-		<span class='login'>
-			<%= link_to 'Login', user_sessions_path %>
-		</span>
-	<% end %>
+  <% if current_user.present? %>
+      <span class='user-name'>
+        <%= current_user.name %>
+      </span>
+      <span class='log-out'>
+        <%= link_to 'Logout', logout_user_sessions_path %>
+      </span>
+      <span class='schedules'>
+        <%= link_to 'Schedules', schedules_path %>
+      </span>
+      <span clss='events'>
+        <%= link_to 'Events', events_path %>
+      </span>
+      <span clss='jobs'>
+        <%= link_to 'Jobs', jobs_path %>
+      </span>
+    </div>
+  <% elsif !(controller_name == :user_sessions && action_name == :new)  %>
+    <span class='login'>
+      <%= link_to 'Login', user_sessions_path %>
+    </span>
+  <% end %>
 </div>
