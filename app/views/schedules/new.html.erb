@@ -3,7 +3,7 @@
   <%= f.label 'Cron Schedule' %>
   <%= f.text_field :cron_schedule, required: true %>
   <%= f.label 'Queue' %>
-  <%= f.text_field :queue, required: true %>
+  <%= f.select :queue, ['default', 'event'], required: true %>
   <%= f.label 'Priority' %>
   <%= f.text_field :priority, required: true %>
   <%= f.label 'Status' %>

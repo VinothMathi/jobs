@@ -7,6 +7,8 @@
     Name: <%= @event.name %>
     <br/>
     Status: <%= @event.status %>
+    <br/>
+    Created at: <%= @event.created_at.strftime('%Y-%M-%d %H:%m:%S') %>
   </div>
   <% schedules = @event.schedules %>
   <% if schedules.present? %>

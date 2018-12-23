@@ -21,5 +21,7 @@
     Created By: <%= @schedule.user.name %>
     <br/>
     Last Updated By: <%= @schedule.last_updated_by.name %>
+    <br/>
+    Created at: <%= @schedule.created_at.strftime('%Y-%M-%d %H:%m:%S') %>
   </div>
 </div>
